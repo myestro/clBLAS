@@ -275,7 +275,9 @@ endif()
 
 
 # This will define OPENCL_FOUND
-find_package( OpenCL ${OPENCL_VERSION} )
+if (NOT OPENCL_FOUND)
+	find_package( OpenCL ${OPENCL_VERSION} )
+endif()
 
 # Find Boost on the system, and configure the type of boost build we want
 set( Boost_USE_MULTITHREADED ON )
